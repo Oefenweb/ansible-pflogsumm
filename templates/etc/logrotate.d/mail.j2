@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+{% for pflogsumm_logrotate_logfile in pflogsumm_logrotate_logfiles %}
+{{ pflogsumm_logrotate_logfile }}
+{% endfor %}
+{
+  rotate {{ pflogsumm_logrotate_times }}
+  {{ pflogsumm_logrotate_interval }}
+  missingok
+  notifempty
+  compress
+  delaycompress
+  sharedscripts
+  prerotate
+    if [ -x /usr/local/sbin/pflogsumm-report ]; then
+      /usr/local/sbin/pflogsumm-report
+    fi
+  endscript
+}

@@ -1,0 +1,6 @@
+---
+# test file for pflogsumm
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-pflogsumm

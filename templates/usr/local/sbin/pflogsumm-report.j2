@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# set -x;
+set -e;
+set -o pipefail;
+#
+
+# {{ ansible_managed }}
+
+pflogsumm {{ pflogsumm_report_logfile }} \
+  | formail -c -I"Subject: {{ pflogsumm_report_subject }}" -I"From: {{ pflogsumm_report_from }}" -I"To: {{ pflogsumm_report_to }}" -I"Received: from `hostname -f`" \
+  | sendmail {{ pflogsumm_report_to }} \
+;

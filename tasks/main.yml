@@ -1,0 +1,36 @@
+---
+# tasks file for pflogsumm
+- name: install
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: pflogsumm_dependencies
+  when: pflogsumm_dependencies
+  tags: [configuration, pflogsumm, pflogsumm-install]
+
+- name: update existing logrotate.d script
+  lineinfile:
+    dest: /etc/logrotate.d/rsyslog
+    regexp: "^{{ item }}$"
+    state: absent
+  with_items: pflogsumm_logrotate_logfiles
+  when: pflogsumm_logrotate_logfiles
+  tags: [configuration, pflogsumm, pflogsumm-configuration]
+
+- name: create custom logrotate.d script
+  template:
+    src: etc/logrotate.d/mail.j2
+    dest: /etc/logrotate.d/mail
+    owner: root
+    group: root
+    mode: 0644
+  tags: [configuration, pflogsumm, pflogsumm-configuration]
+
+- name: create report script
+  template:
+    src: usr/local/sbin/pflogsumm-report.j2
+    dest: /usr/local/sbin/pflogsumm-report
+    owner: root
+    group: root
+    mode: 0755
+  tags: [configuration, pflogsumm, pflogsumm-configuration]

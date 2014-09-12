@@ -1,0 +1,14 @@
+---
+# vars file for pflogsumm
+pflogsumm_dependencies:
+  - pflogsumm
+  # Needed for formail
+  - procmail
+
+pflogsumm_report_logfile: /var/log/mail.log
+
+pflogsumm_logrotate_logfiles:
+  - /var/log/mail.info
+  - /var/log/mail.warn
+  - /var/log/mail.err
+  - /var/log/mail.log
