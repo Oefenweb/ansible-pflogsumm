@@ -4,11 +4,15 @@ Set up pflogsumm in Debian-like systems.
 
 #### Requirements
 
-None
+* `formail` (will be installed)
 
 #### Variables
 
-None
+* `pflogsumm_report_from` [default: `pflogsumm`]: The mail address reports are sent from
+* `pflogsumm_report_to` [default: `root`]: The mail address reports are sent to
+* `pflogsumm_report_subject` [default: ``'[pflogsumm] `hostname -f`: mail statistics'``]: The subject line for the report mails
+* `pflogsumm_logrotate_interval` [default: `daily`]: Log files are rotated every <interval>.
+* `pflogsumm_logrotate_times` [default: `7`]: Log files are rotated <times> times before being removed
 
 ## Dependencies
 
