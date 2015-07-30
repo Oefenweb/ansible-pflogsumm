@@ -26,7 +26,7 @@ None
 ---
 - hosts: all
   roles:
-  - pflogsumm
+    - pflogsumm
 ```
 
 #### License

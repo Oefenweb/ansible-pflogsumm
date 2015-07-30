@@ -1,9 +1,11 @@
----
 # tasks file for pflogsumm
+---
 - name: install
   apt:
     name: "{{ item }}"
     state: latest
+    update_cache: true
+    cache_valid_time: 3600
   with_items: pflogsumm_dependencies
   when: pflogsumm_dependencies
   tags: [configuration, pflogsumm, pflogsumm-install]

@@ -1,5 +1,5 @@
----
 # defaults file for pflogsumm
+---
 pflogsumm_report_from: pflogsumm
 pflogsumm_report_to: root
 pflogsumm_report_subject: '[pflogsumm] `hostname -f`: mail statistics'
