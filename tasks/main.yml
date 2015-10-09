@@ -7,7 +7,6 @@
     update_cache: true
     cache_valid_time: 3600
   with_items: pflogsumm_dependencies
-  when: pflogsumm_dependencies
   tags: [configuration, pflogsumm, pflogsumm-install]
 
 - name: update existing logrotate.d script
@@ -16,7 +15,6 @@
     regexp: "^{{ item }}$"
     state: absent
   with_items: pflogsumm_logrotate_logfiles
-  when: pflogsumm_logrotate_logfiles
   tags: [configuration, pflogsumm, pflogsumm-configuration]
 
 - name: create custom logrotate.d script
