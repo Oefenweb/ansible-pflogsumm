@@ -1,6 +1,6 @@
 ## pflogsumm
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-pflogsumm.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-pflogsumm) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-pflogsumm-blue.svg)](https://galaxy.ansible.com/list#/roles/1687)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-pflogsumm.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-pflogsumm) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-pflogsumm-blue.svg)](https://galaxy.ansible.com/tersmitten/pflogsumm)
 
 Set up pflogsumm in Debian-like systems.
 

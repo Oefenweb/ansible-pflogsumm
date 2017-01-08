@@ -3,19 +3,25 @@
 - name: install
   apt:
     name: "{{ item }}"
-    state: latest
+    state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  with_items: pflogsumm_dependencies
-  tags: [configuration, pflogsumm, pflogsumm-install]
+  with_items: "{{ pflogsumm_dependencies }}"
+  tags:
+    - configuration
+    - pflogsumm
+    - pflogsumm-install
 
 - name: update existing logrotate.d script
   lineinfile:
     dest: /etc/logrotate.d/rsyslog
     regexp: "^{{ item }}$"
     state: absent
-  with_items: pflogsumm_logrotate_logfiles
-  tags: [configuration, pflogsumm, pflogsumm-configuration]
+  with_items: "{{ pflogsumm_logrotate_logfiles }}"
+  tags:
+    - configuration
+    - pflogsumm
+    - pflogsumm-configuration
 
 - name: create custom logrotate.d script
   template:
@@ -24,7 +30,10 @@
     owner: root
     group: root
     mode: 0644
-  tags: [configuration, pflogsumm, pflogsumm-configuration]
+  tags:
+    - configuration
+    - pflogsumm
+    - pflogsumm-configuration
 
 - name: create report script
   template:
@@ -33,4 +42,7 @@
     owner: root
     group: root
     mode: 0755
-  tags: [configuration, pflogsumm, pflogsumm-configuration]
+  tags:
+    - configuration
+    - pflogsumm
+    - pflogsumm-configuration
