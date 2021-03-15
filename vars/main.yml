@@ -1,4 +1,4 @@
-# vars file for pflogsumm
+# vars file
 ---
 pflogsumm_dependencies:
   - pflogsumm

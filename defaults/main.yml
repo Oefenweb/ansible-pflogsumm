@@ -1,4 +1,4 @@
-# defaults file for pflogsumm
+# defaults file
 ---
 pflogsumm_report_from: pflogsumm
 pflogsumm_report_to: root
