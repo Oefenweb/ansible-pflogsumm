@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install
-  apt:
+  ansible.builtin.apt:
     name: "{{ pflogsumm_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -12,7 +12,7 @@
     - pflogsumm-install
 
 - name: update existing logrotate.d script
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/logrotate.d/rsyslog
     regexp: "^{{ item }}$"
     state: absent
@@ -23,7 +23,7 @@
     - pflogsumm-configuration
 
 - name: create custom logrotate.d script
-  template:
+  ansible.builtin.template:
     src: etc/logrotate.d/mail.j2
     dest: /etc/logrotate.d/mail
     owner: root
@@ -35,7 +35,7 @@
     - pflogsumm-configuration
 
 - name: create report script
-  template:
+  ansible.builtin.template:
     src: usr/local/sbin/pflogsumm-report.j2
     dest: /usr/local/sbin/pflogsumm-report
     owner: root
