@@ -27,7 +27,7 @@ None
 ---
 - hosts: all
   roles:
-    - pflogsumm
+    - oefenweb.pflogsumm
 ```
 
 #### License
