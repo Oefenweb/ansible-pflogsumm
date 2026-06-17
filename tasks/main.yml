@@ -28,7 +28,7 @@
     dest: /etc/logrotate.d/mail
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   tags:
     - configuration
     - pflogsumm
@@ -40,7 +40,7 @@
     dest: /usr/local/sbin/pflogsumm-report
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
   tags:
     - configuration
     - pflogsumm

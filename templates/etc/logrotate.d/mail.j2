@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 {% for pflogsumm_logrotate_logfile in pflogsumm_logrotate_logfiles %}
 {{ pflogsumm_logrotate_logfile }}
